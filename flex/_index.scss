@@ -1,0 +1,22 @@
+@import '../flexUtils/_index.scss';
+
+@for $i from 1 through 100 {
+  .fxItem-#{$i} {
+    width: 1% * $i;
+    max-width: 1% * $i;
+  }
+}
+
+.fxRow {
+  display: flex;
+  @extend fxWrap;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.fxColumn {
+  display: flex;
+  flex-direction: column;
+}

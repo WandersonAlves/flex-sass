@@ -1,0 +1,18 @@
+@for $i from 1 through 5 {
+  .fxRow.fxGap-#{$i*10} {
+    > * {
+      margin-right: #{$i*10}px;
+
+      @media screen and (max-width: 768px) {
+        margin-right: 0;
+        margin-bottom: #{$i*10}px;
+      }
+    }
+  }
+
+  .fxColumn.fxGap-#{$i*10} {
+    > * {
+      margin-bottom: #{$i*10}px;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+$alignItemsModes: (
+  Center: 'center',
+  Baseline: 'baseline',
+  Start: 'flex-start',
+  End: 'flex-end'
+);
+
+$justifySelfModes: (
+  Center: 'center',
+  Baseline: 'baseline',
+  Start: 'flex-start',
+  End: 'flex-end'
+);
+
+$fxClass: (
+  fxAlignItems: $alignItemsModes,
+  fxJustifySelf: $justifySelfModes,
+);
+
+// First, get key, value from class mapping
+@each $class, $map in $fxClass {
+  // Second, get key, value from mapping of class on step 1
+  @each $mode, $value in $map {
+    // Generate class names two maps
+    .#{$class}#{$mode} {
+      // If class is fxAlignItems, set align-items with $value
+      // do this for other items from $fxClass
+      @if ($class == 'fxAlignItems') {
+        align-items: $value;
+      }
+      @if ($class == 'fxJustifySelf') {
+        justify-self: $value;
+      }
+    }
+  }
+}
